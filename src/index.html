@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="./index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        <a href="./src/pages/dogs.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Dogs</a>
+        <a href="pages/favorites.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Favorites</a>
+        <a href="pages/contact.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
+        <a href="pages/about.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="./index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="src/pages/dogs.html" class="w3-bar-item w3-button w3-padding-large">Dogs</a>
+        <a href="pages/favorites.html" class="w3-bar-item w3-button w3-padding-large">Favorites</a>
+        <a href="pages/contact.html" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+        <a href="pages/about.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin w3-jumbo">START PAGE</h1>
+    <p class="w3-xlarge">Template by w3.css</p>
+    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-twothird">
+            <h1><%= htmlWebpackPlugin.options.title %></h1>
+            <div id="app"></div>
+        </div>
+
+        <div class="w3-third w3-center">
+            <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+        </div>
+    </div>
+</div>
+
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content">
+        <h1  class="w3-text-grey">Folgende Augaben wurden vom Projekt umgesetzt:</h1>
+        <div class="w3-text-grey">
+            <table>
+                <tr>
+                    <th>Status</th>
+                    <th>Bereich</th>
+                    <th>Aufgabe</th>
+                    <th>Kommentar</th>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>General Requirements</td>
+                    <td>Responsive page content (at least: 1920×1080, 1440×900, 360x640)</td>
+                    <td>Verschiedene Auflösungen wurdeng getestet und funktionieren ohne Probleme!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>General Requirements</td>
+                    <td>No Javascript Frameworks/Libraries (JQuery, Angular, React, Vue and so on) – CSS Libraries are ok -> K.O. criterion!</td>
+                    <td>Es wurde reines HTML, SCSS und Javascript verwendet! Als Build Tool wurde Parcel genutzt!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>General Requirements</td>
+                    <td>Clear and consistent project structure (e.g. folders, resources, ...)</td>
+                    <td>Die Projectstruktur wurde in scss, fonts, img, js und pages unterteilt.</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>General Requirements</td>
+                    <td>Separate resource files (e.g. css, html and scripts)</td>
+                    <td>Die files wurden aufgeteilt!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Project setup with npm and Webpack</td>
+                    <td>Build the application with npm and Webpack</td>
+                    <td>Es wurde Parcel genutzt als build application genutzt!</td>
+                </tr>
+                <tr>
+                    <td>Offen</td>
+                    <td>Project setup with npm and Webpack</td>
+                    <td>Define 2 Builds (in npm scripts): (DEV/PROD)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Project setup with npm and Webpack</td>
+                    <td>Keep your builds clear and add dependencies to the right build (eg. don’t add dev dependencies inside the prod build)</td>
+                    <td>Es wurden keine build dependencies in dev dependencies gesteckt!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Project setup with npm and Webpack</td>
+                    <td>WAI compliant (Lighthouse analysis)</td>
+                    <td>Laut Google Chrome Lighthouse - (Leistung: 94, Barrierefreiheit: 95, Best Practices: 100, SEO: 91)</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Multiple Pages</td>
+                    <td>Implement multiple pages with proper navigation</td>
+                    <td>Es wurden mehrere Pages u.a Home, Search, Contact etc. realisiert!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Consume API Data with Ajax</td>
+                    <td>Any public API</td>
+                    <td>Fetch wurde genutzt und OMDB Daten zu beziehen!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>DOM Manipulation</td>
+                    <td>Render requested API data in HTML (table, list, containers, ...)</td>
+                    <td>Titel und Bild aus den API Daten werden in einer Gallerie angezeigt</td>
+                </tr>
+                <tr>
+                    <td>Offen</td>
+                    <td>DOM Manipulation</td>
+                    <td>Add/remove data from list to a container (eg “favorites” or “shopping cart”)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Implement a form</td>
+                    <td>that consists of following fields: text, number, password, email</td>
+                    <td>Es wurden ein paar andere Felder genommen. Password ist für eine Kontaktformular nicht notwendig!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Implement a form</td>
+                    <td>input is validated on user event (click, hover, enter, ...)</td>
+                    <td>Es wurde ein Klick via Button genutzt um die Validierung zu aktivieren!</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Implement a form</td>
+                    <td>input validation (error/success) is presented to the user (modal, in-form highlighting, ...</td>
+                    <td>Wird die Validierung via Button clicked aktiviert und eine Validierung fehlt, wird dies via farblich hervorgehoben!</td>
+                </tr>
+                <tr>
+                    <td>Offen</td>
+                    <td>Webpage Hosting</td>
+                    <td>Host your production build in an automated manner via Github Actions and a Hosting Provider of your choice (eg. Github Pages, Netlify, AWS, Azure, ...)</td>
+                    <td>Wurde auf github pages deployed mit ci/cd pipleine</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Optional extra points</td>
+                    <td>Use Typescript</td>
+                    <td>Es wurde typescript anstelle von javascript genutzt</td>
+                </tr>
+                <tr>
+                    <td>Erledigt</td>
+                    <td>Optional extra points</td>
+                    <td>Use SASS/SCSS</td>
+                    <td>Es wurde SCSS anstelle von CSS genutzt!</td>
+                </tr>
+                <tr>
+                    <td>Nicht notwendig</td>
+                    <td>Optional extra points</td>
+                    <td>Configure ESLint</td>
+                    <td>Es wurden bereits zwei zusätzliche extra Punkte erreicht!</td>
+                </tr>
+                <tr>
+                    <td>Nicht notwendig</td>
+                    <td>Optional extra points</td>
+                    <td>Use Babel</td>
+                    <td>Es wurden bereits zwei zusätzliche extra Punkte erreicht!</td>
+                </tr>
+            </table>
+            <p class="w3-text-grey">diese Tabelle wurde von David Schedler übernommen</p>
+        </div>
+    </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <p class="w3-margin">Diese App wurde von Katharina Bühn für das Fach Web Engineering Wahlpflichtmodul erstellt.</p>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+    <a href=""></a>
+</footer>
+
+<script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+
+</body>
+</html>
