@@ -5,10 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: 'production',
     // 1
-    // Use the src/index.js file as entry point to bundle it.
-    // If the src/index.js file imports other JS files,
+    // Use the src/index.ts file as entry point to bundle it.
+    // If the src/index.ts file imports other JS files,
     // bundle them as well
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: path.resolve(__dirname, './src/scripts/index.ts'),
     // 2
     // The bundles source code files shall result in a bundle.js file
     // in the /dist folder
@@ -29,11 +29,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Basic Webpack Setup",
             template: path.resolve(__dirname, './src/index.html'),
-        }),
-        new HtmlWebpackPlugin({
-            title: "The dogs page",
-            template: path.resolve(__dirname, './src/pages/dogs.html'),
-        }),
+        })
     ],
     // 5
     // Integrate Babel in the build process
