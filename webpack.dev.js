@@ -1,55 +1,61 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: path.resolve(__dirname, './src/scripts/index.ts'),
+    mode: 'development',
+    entry: path.resolve(__dirname, './src/scripts/index.js'),
+    output: {
+        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "./dist"),
+    },
 
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "./dist"),
-  },
+    devServer: {
+        static: path.resolve(__dirname, './dist'),
+    },
 
-  devServer: {
-    static: path.resolve(__dirname, './dist'),
-  },
+    plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Web Engineering Einzelprojekt DEV',
+            filename: "index.html",
+            template: path.resolve(__dirname, './src/index.html'),
+        }),
+        new HtmlWebpackPlugin({
+            title: 'DOGS?',
+            filename: "dogs.html",
+            template: path.resolve(__dirname, './src/pages/dogs.html'),
+        }),
 
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Web Engineering Einzelprojekt DEV',
-      template: path.resolve(__dirname, './src/index.html'),
-    }),
-    new ESLintPlugin(),
-  ],
-
-  module: {
-    // configuration regarding modules
-    rules: [
-      {
-        test: /\.(js)$/,
-        exclude: /node_modules/, // files to exclude
-        use: ['babel-loader'],
-      },
-      // CSS and SASS
-      {
-        test: /\.(scss|css)$/, // load files that end with scss and css
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
-      },
-      { // define typescript loader and file extensions
-        test: /\.tsx?/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
+        new ESLintPlugin(),
     ],
-  },
-  resolve: {
-    extensions: ['*', '.js', '.ts'], // files to load
-  },
+
+    module: {
+        // configuration regarding modules
+        rules: [
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/, // files to exclude
+                use: ['babel-loader'],
+            },
+            // CSS and SASS
+            {
+                test: /\.(scss|css)$/, // load files that end with scss and css
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
+            { // define typescript loader and file extensions
+                test: /\.tsx?/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+        ],
+    },
+    resolve: {
+        extensions: ['*', '.js', '.ts'], // files to load
+    },
 };
