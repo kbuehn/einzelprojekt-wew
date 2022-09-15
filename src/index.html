@@ -1,27 +1,17 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="description" content="">
-    <link rel="stylesheet" href="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-
-<!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-blue-grey w3-card w3-left-align w3-large">
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
-           href="javascript:void(0);"><i class="fa fa-bars"></i></a>
         <a href="./index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-        <a href="./dogs.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Dogs</a>
-        <a href="./favorites.html"
-           class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Favorites</a>
-        <a href="./contact.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
-        <a href="./about.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+        <a href="./src/pages/dogs.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Dogs</a>
+        <a href="./src/pages/about.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">About</a>
     </div>
 </div>
 
@@ -32,173 +22,54 @@
     <a href="./dogs.html" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</a>
 </header>
 
-<!-- First Grid -->
+<!-- Form -->
 <div class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
-        <h1>Willkommen!</h1>
-        <p>Für eine persönliche Anrede registiere dich indem du das Formular ausfüllst und klicke auf bestätigen!</p>
-        <form action="scripts/index.js">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value="John"><br>
+        <h1 id="welcomeMsg">Welcome stranger!</h1>
+        <p>Fill this form to get a personalized welcome message!</p>
+        <form action="src/pages/about.html">
+            <label for="name">First name:</label><br>
+            <input type="text" id="name" name="fname" placeholder="John" required><br>
 
-            <label for="fname">Age:</label><br>
-            <input type="number" id="age" name="age" value="21"><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" placeholder="21" required><br>
 
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="john@doe.com" required><br>
 
-            <label for="fname">Email:</label><br>
-            <input type="email" id="email" name="email" value="john@doe.com"><br>
+            <label for="pw">Password:</label><br>
+            <input type="password" id="pw" name="pw" minlength="8" required><br>
 
-
-            <label for="fname">Password:</label><br>
-            <input type="password" id="pw" name="pw" value="123"><br>
-
-            <input type="submit" value="Submit">
+            <button type="submit">Submit</button>
         </form>
-        <script src="./dist/main.bundle.js"></script>
     </div>
 </div>
 
-<div class="w3-row-padding w3-padding-64 w3-container">
+<!-- API call -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
     <div class="w3-content">
-        <h1>Folgende Augaben wurden vom Projekt umgesetzt:</h1>
-        <div>
-            <table>
-                <tr>
-                    <th>Status</th>
-                    <th>Bereich</th>
-                    <th>Aufgabe</th>
-                    <th>Kommentar</th>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>General Requirements</td>
-                    <td>Responsive page content (at least: 1920×1080, 1440×900, 360x640)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>General Requirements</td>
-                    <td>No Javascript Frameworks/Libraries (JQuery, Angular, React, Vue and so on) – CSS Libraries are
-                        ok -> K.O. criterion!
-                    </td>
-                    <td>Es wurde reines HTML, SCSS und Javascript verwendet! Build Tool: Webpack</td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>General Requirements</td>
-                    <td>Clear and consistent project structure (e.g. folders, resources, ...)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>General Requirements</td>
-                    <td>Separate resource files (e.g. css, html and scripts)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Project setup with npm and Webpack</td>
-                    <td>Build the application with npm and Webpack</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Project setup with npm and Webpack</td>
-                    <td>Define 2 Builds (in npm scripts): (DEV/PROD)</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Project setup with npm and Webpack</td>
-                    <td>Keep your builds clear and add dependencies to the right build (eg. don’t add dev dependencies
-                        inside the prod build)
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>Project setup with npm and Webpack</td>
-                    <td>WAI compliant (Lighthouse analysis)</td>
-                    <td>Laut Google Chrome Lighthouse - (Leistung: 94, Barrierefreiheit: 95, Best Practices: 100, SEO:
-                        91)
-                    </td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Multiple Pages</td>
-                    <td>Implement multiple pages with proper navigation</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>Consume API Data with Ajax</td>
-                    <td>Any public API</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>DOM Manipulation</td>
-                    <td>Render requested API data in HTML (table, list, containers, ...)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>DOM Manipulation</td>
-                    <td>Add/remove data from list to a container (eg “favorites” or “shopping cart”)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>Implement a form</td>
-                    <td>that consists of following fields: text, number, password, email</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>Implement a form</td>
-                    <td>input is validated on user event (click, hover, enter, ...)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>Implement a form</td>
-                    <td>input validation (error/success) is presented to the user (modal, in-form highlighting, ...</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Offen</td>
-                    <td>Webpage Hosting</td>
-                    <td>Host your production build in an automated manner via Github Actions and a Hosting Provider of
-                        your choice (eg. Github Pages, Netlify, AWS, Azure, ...)
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Optional extra points</td>
-                    <td>Use Typescript</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Optional extra points</td>
-                    <td>Use SASS/SCSS</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Optional extra points</td>
-                    <td>Configure ESLint</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Erledigt</td>
-                    <td>Optional extra points</td>
-                    <td>Use Babel</td>
-                    <td></td>
-                </tr>
-            </table>
-            <p class="w3-text-grey">diese Tabelle wurde von David Schedler übernommen</p>
+        <div class="api-side">
+            <h3>Breeds list</h3>
+            <div>
+                <table class="dogTable">
+                    <tr class="code-wrapper">
+                        <td>
+                            <div class="code">
+                                https://dog.ceo/api/breed/<select id="breedSelect" class="dog-selector"></select>/images/random
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fetchButton">
+                                <button id='loadDogs' class='w3-padding-large w3-hide-medium w3-hover-grey w3-large w3-blue-grey'>Fetch!</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><img id="dogImage" src="https://dog.ceo/img/dog-api-logo.svg"></td>
+                    </tr>
+                </table>
+
+            </div>
         </div>
     </div>
 </div>
