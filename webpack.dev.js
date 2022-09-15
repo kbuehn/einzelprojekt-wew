@@ -6,6 +6,10 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, './src/scripts/index.js'),
+   /* entry: {
+        index: "./src/scripts/index.js",
+        dogs: "./src/scripts/dogs.js",
+    },*/
     output: {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "./dist"),
@@ -23,7 +27,7 @@ module.exports = {
             template: path.resolve(__dirname, './src/index.html'),
         }),
         new HtmlWebpackPlugin({
-            title: 'DOGS?',
+            title: 'The Dogs Page',
             filename: "dogs.html",
             template: path.resolve(__dirname, './src/pages/dogs.html'),
         }),
