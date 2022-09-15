@@ -19,12 +19,6 @@ th, td {
 	border-bottom: 1px solid #ddd;
 }
 
-.code{
-	font-family: ubuntu mono,monospace;
-	line-height: 1.8;
-	float: left;
-	padding-right: 10%;
-}
 
 select{
 	line-height: 2;
@@ -35,13 +29,24 @@ select{
 .code-wrapper{
 	background-color: #ddd;
 	height: 60px;
-	width:100%;
-	display: flex;
 	padding: 2%;
-	align-items: center;
 }
 
-.dogImage{
-	padding: 2rem;
-	position: relative;
+.dogTable{
+	width:100%;
+}
+
+
+.code{
+	font-family: ubuntu mono,monospace;
+	line-height: 1.8;
+}
+
+.fetchButton{
+	align-items: end;
+}
+
+#dogImage{
+	margin-top: 2%;
+	max-width: 100%;
 }
