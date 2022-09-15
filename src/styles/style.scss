@@ -1,51 +1,51 @@
-$body-color: #383838;
+﻿$body-color: #383838;
 
 body, h1, h2, h3, h4, h5, h6 {
-  color: $body-color;
-  font-family: "Lato", sans-serif;
+	color: $body-color;
+	font-family: "Lato", sans-serif;
 }
 
 .w3-bar, h1, button {
-  font-family: "Montserrat", sans-serif;
+	font-family: "Montserrat", sans-serif;
 }
 
 th {
-  background-color: #eee;
+	background-color: #eee;
 }
 
 th, td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+	padding: 15px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
 }
 
 .code{
-  font-family: ubuntu mono,monospace;
-  line-height: 1.8;
-  float: left;
-  padding-right: 10%;
+	font-family: ubuntu mono,monospace;
+	line-height: 1.8;
+	float: left;
+	padding-right: 10%;
 }
 
 select{
-  line-height: 2;
-  padding: 1%;
-  min-width: 100px;
+	line-height: 2;
+	padding: 1%;
+	min-width: 100px;
 }
 
 .code-wrapper{
-  background-color: #ddd;
-  height: 60px;
-  width:100%;
-  display: flex;
-  padding: 2%;
-  align-items: center;
+	background-color: #ddd;
+	height: 60px;
+	width:100%;
+	display: flex;
+	padding: 2%;
+	align-items: center;
 }
 
-.dog-image{
-  width: 100%;
-  max-width: 800px;
-  padding: 2rem;
-  height: 500px;
-  max-height: 500px;
-  position: relative;
+.dogImage{
+	width: 100%;
+	max-width: 800px;
+	padding: 2rem;
+	height: 500px;
+	max-height: 500px;
+	position: relative;
 }

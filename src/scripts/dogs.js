@@ -19,12 +19,21 @@ function getRandomImage()
     console.log(array);
 
     // get the image url from the array
-    var url = array.message;
-    console.log(url);
+    return array.message;
+    /*console.log("url: "+url);
 
     // get the image object
     var image = document.getElementById('dogImage');
-
+    console.log("image src: "+image.src);
     // set the src of the image object
     image.src = url;
+    console.log("image new src: "+image.src);*/
 }
+
+export function loadDogContent(){
+    let url = getRandomImage();
+    let image = document.getElementById("dogImage");
+    image.src = url;
+}
+
+
