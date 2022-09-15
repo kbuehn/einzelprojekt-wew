@@ -8,32 +8,27 @@ function httpGet(theUrl)
 }
 
 // function to get a random image
-function getRandomImage()
+export function getBreedImage(breed)
 {
     // get the json from the server
-    var json = httpGet('https://dog.ceo/api/breeds/image/random');
-    console.log(json);
+    var imageJson = httpGet('https://dog.ceo/api/breed/'+breed+'/images/random');
+    console.log(imageJson);
 
     // decode the json into an array
-    var array = JSON.parse(json);
+    var array = JSON.parse(imageJson);
     console.log(array);
 
     // get the image url from the array
     return array.message;
-    /*console.log("url: "+url);
-
-    // get the image object
-    var image = document.getElementById('dogImage');
-    console.log("image src: "+image.src);
-    // set the src of the image object
-    image.src = url;
-    console.log("image new src: "+image.src);*/
 }
 
-export function loadDogContent(){
-    let url = getRandomImage();
-    let image = document.getElementById("dogImage");
-    image.src = url;
+export function getBreedList(){
+    var breedsJson = httpGet('https://dog.ceo/api/breeds/list/all');
+    console.log(breedsJson);
+    var list = JSON.parse(breedsJson).message
+    console.log(list);
+    return list;
+
 }
 
 

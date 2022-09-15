@@ -1,8 +1,27 @@
 import {formData} from './scripts/forms'
-import {loadDogContent} from './scripts/dogs'
+import {getBreedImage, getBreedList} from './scripts/dogs'
 import './styles/bootstrap.min.css';
 import './styles/style.scss';
 
+
+let breedsArray =Object.keys(getBreedList());
+const selectHtml = <HTMLSelectElement>document.getElementById('breedSelect')!;
+
+for(let i = 0; i < breedsArray.length; i++) {
+    let newOption = document.createElement("option");
+    newOption.text = breedsArray[i];
+    selectHtml.add(newOption);
+}
+
+const btnLoadDogs = <HTMLInputElement>document.getElementById('loadDogs')!;
+if (btnLoadDogs) {
+    btnLoadDogs.addEventListener('click', () => {
+        let selection = <HTMLSelectElement>document.getElementById('breedSelect');
+        let url = getBreedImage(selection.value);
+        let image = <HTMLInputElement>document.getElementById('dogImage');
+        image.src = url;
+    })
+}
 
 //personalized greeting
 const form = document.querySelector('form')!;
@@ -11,9 +30,8 @@ if (form) {
         e.preventDefault();
         const formInput = formData(form);
         if (formInput.name !== "" && formInput.age !== "" && formInput.email !== "" && formInput.password !== "") {
-            alert("Hello "+formInput.name+", i'm glad you entered your data so I can greet you");
-        }
-        else {
+            alert("Hello " + formInput.name + ", i'm glad you entered your data so I can greet you");
+        } else {
             alert("Wrong values, please fill in all data correctly.");
         }
     });
