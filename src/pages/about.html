@@ -1,35 +1,31 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 <div class="w3-top">
     <div class="w3-bar w3-blue-grey w3-card w3-left-align w3-large">
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-blue-grey"
-           href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-        <a href="../../index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Home</a>
-        <a href="/src/pages/dogs.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Dogs</a>
+        <a href="../../index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
         <a href="/src/pages/about.html" class="w3-bar-item w3-button w3-padding-large w3-white">About</a>
     </div>
 </div>
 
-
 <!-- Header -->
-<header class="w3-container w3-light-blue w3-center" style="padding:128px 16px">
+<header class="w3-container w3-light-blue w3-center header-dogs" style="padding:128px 16px">
     <h1>ABOUT</h1>
 </header>
 
 
-
 <!-- Table-->
-<div class="w3-row-padding w3-padding-64 w3-container">
-    <div class="w3-content">
-        <h1>Folgende Augaben wurden vom Projekt umgesetzt:</h1>
+
+<h1 class="w3-padding-16 w3-padding-small">Folgende Augaben wurden vom Projekt umgesetzt:</h1>
+<div class="w3-row-padding w3-container">
+    <div class="w3-content table-overflow">
         <div>
             <table>
                 <tr>
@@ -39,7 +35,7 @@
                     <th>Kommentar</th>
                 </tr>
                 <tr>
-                    <td>Offen</td>
+                    <td>Erledigt</td>
                     <td>General Requirements</td>
                     <td>Responsive page content (at least: 1920×1080, 1440×900, 360x640)</td>
                     <td></td>
@@ -74,7 +70,7 @@
                     <td>Erledigt</td>
                     <td>Project setup with npm and Webpack</td>
                     <td>Define 2 Builds (in npm scripts): (DEV/PROD)</td>
-                    <td>-</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Erledigt</td>
@@ -85,11 +81,10 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Offen</td>
+                    <td>Erledigt</td>
                     <td>Project setup with npm and Webpack</td>
                     <td>WAI compliant (Lighthouse analysis)</td>
-                    <td>Laut Google Chrome Lighthouse - (Leistung: 94, Barrierefreiheit: 95, Best Practices: 100, SEO:
-                        91)
+                    <td>Mobil und Desktop alle Werte über 90% - siehe Screenshots in /src/
                     </td>
                 </tr>
                 <tr>
@@ -99,19 +94,19 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Offen</td>
+                    <td>Erledigt</td>
                     <td>Consume API Data with Ajax</td>
                     <td>Any public API</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Offen</td>
+                    <td>Erledigt</td>
                     <td>DOM Manipulation</td>
                     <td>Render requested API data in HTML (table, list, containers, ...)</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Offen</td>
+                    <td>Erledigt</td>
                     <td>DOM Manipulation</td>
                     <td>Add/remove data from list to a container (eg “favorites” or “shopping cart”)</td>
                     <td></td>
@@ -173,5 +168,9 @@
 </div>
 
 </div>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-blue">
+    <p class="w3-margin">Diese App wurde von Katharina Bühn für das Fach Web Engineering Wahlpflichtmodul erstellt.</p>
+</footer>
 </body>
 </html>

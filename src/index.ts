@@ -1,13 +1,13 @@
 import {formData} from './scripts/forms'
-import {getBreedImage, getBreedList} from './scripts/dogs'
+import {getBreedList} from './scripts/dogs'
 import './styles/bootstrap.min.css';
 import './styles/style.scss';
 
 
-let breedsArray =Object.keys(getBreedList());
+let breedsArray = Object.keys(getBreedList());
 const selectHtml = <HTMLSelectElement>document.getElementById('breedSelect')!;
 
-for(let i = 0; i < breedsArray.length; i++) {
+for (let i = 0; i < breedsArray.length; i++) {
     let newOption = document.createElement("option");
     newOption.text = breedsArray[i];
     selectHtml.add(newOption);
@@ -16,11 +16,45 @@ for(let i = 0; i < breedsArray.length; i++) {
 const btnLoadDogs = <HTMLInputElement>document.getElementById('loadDogs')!;
 if (btnLoadDogs) {
     btnLoadDogs.addEventListener('click', () => {
+
         let selection = <HTMLSelectElement>document.getElementById('breedSelect');
-        let url = getBreedImage(selection.value);
-        let image = <HTMLInputElement>document.getElementById('dogImage');
-        image.src = url;
+        let url = "https://dog.ceo/api/breed/" + selection.value + "/images/random";
+
+        fetch(url).then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                // Examine the text in the response
+                response.json().then((data) => {
+                    let image = <HTMLInputElement>document.getElementById('dogImage');
+                    image.src = data.message;
+                });
+            });
+
     })
+}
+
+const btnSaveBreed = <HTMLInputElement>document.getElementById('saveBreed')!;
+if (btnSaveBreed) {
+    let selection = <HTMLSelectElement>document.getElementById('breedSelect');
+    if (selection) {
+        btnSaveBreed.addEventListener('click', () => {
+            let listDomElement = document.getElementById("list")!;
+            const paragraphElement = document.createElement("p");
+            paragraphElement.textContent = selection.value;
+
+            const divElement = document.createElement("div");
+            divElement.appendChild(paragraphElement);
+
+            listDomElement.appendChild(divElement);
+        });
+    } else {
+        alert("Please choose a breed");
+    }
+
 }
 
 //personalized greeting
@@ -89,22 +123,4 @@ if (htmlPassword) {
         }
     });
 }
-
-/*
-async function ajaxCall(callback: (fact: string) => any) {
-    await fetch("https://catfact.ninja/fact?max_length=140").then(
-        function (response) {
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                    response.status);
-                return;
-            }
-            // Examine the text in the response
-            response.json().then((data) => {
-                callback(data.fact)
-            });
-        });
-}*/
-
-
 

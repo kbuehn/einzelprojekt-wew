@@ -21,11 +21,6 @@ module.exports = {
             filename: "index.html"
         }),
         new HtmlWebpackPlugin({
-            title: "Dogs Site",
-            template: path.resolve(__dirname, './src/pages/dogs.html'),
-            filename: "./src/pages/dogs.html"
-        }),
-        new HtmlWebpackPlugin({
             title: "About",
             template: path.resolve(__dirname, './src/pages/about.html'),
             filename: "./src/pages/about.html"

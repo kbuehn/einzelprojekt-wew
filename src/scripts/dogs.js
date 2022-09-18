@@ -7,7 +7,7 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
-// function to get a random image
+// function not used anymore
 export function getBreedImage(breed)
 {
     // get the json from the server
@@ -30,5 +30,6 @@ export function getBreedList(){
     return list;
 
 }
+
 
 
