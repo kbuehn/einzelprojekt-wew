@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: path.resolve(__dirname, '/src/index.ts'),
 
     output: {
@@ -11,18 +11,18 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
-        static: path.resolve(__dirname, './dist'),
+        static: path.resolve(__dirname, '/dist'),
     },
     plugins: [
         new CleanWebpackPlugin,
         new HtmlWebpackPlugin({
             title: "Einzelprojekt WEW",
-            template: path.resolve(__dirname, './src/index.html'),
+            template: path.resolve(__dirname, '/src/index.html'),
             filename: "index.html"
         }),
         new HtmlWebpackPlugin({
             title: "About",
-            template: path.resolve(__dirname, './src/pages/about.html'),
+            template: path.resolve(__dirname, '/src/pages/about.html'),
             filename: "./src/pages/about.html"
         })
     ],
