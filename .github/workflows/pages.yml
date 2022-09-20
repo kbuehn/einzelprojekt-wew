@@ -10,22 +10,17 @@ jobs:
   # Single deploy job since we're just deploying
   build-please:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+        
     steps:
-      - uses: actions/checkout@v2 # checks out your repository and download it
-      - name: Setup Node.js
-        uses: actions/setup-node@v1 #install node (for access to npm command)
-        with:
-          node-version: '12'
-      - uses: actions/cache@v2 # This action allows caching dependencies and build outputs to improve workflow execution time.
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} # An explicit key for restoring and saving the cache ?
-          restore-keys: ${{ runner.os }}-node- # An ordered list of keys to use for restoring the cache if no cache hit occurred for key ?
-      - run: npm ci # install project dependencies
-      - run: npm run build --if-present # build the project
-      - uses: netlify/actions/cli@master # This Action enables arbitrary actions with the Netlify CLI
-        env: # environment variables used for netlify action
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_API_ID }}
-        with: # A map of the input parameters defined by the action. Each input parameter is a key/value pair. 
-          args: deploy --dir=dist --prod
+       - uses: actions/checkout@v3
+       - name: Use Node.js ${{ matrix.node-version }}
+         uses: actions/setup-node@v3
+         with:
+          node-version: ${{ matrix.node-version }}
+       - run: npm ci
+       - run: npm run build --if-present
+       - run: npm test
