@@ -44,3 +44,5 @@ jobs: # define jobs to run
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_API_ID }}
         with: # A map of the input parameters defined by the action. Each input parameter is a key/value pair. 
           args: deploy --dir=dist --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+          
