@@ -1,6 +1,8 @@
-name: NodeJS with Webpack
+name: Webpack CI
 
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
@@ -8,41 +10,45 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
+  
+permissions: 
   contents: read
   pages: write
+  deployments: write
   id-token: write
 
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-  
-jobs: # define jobs to run
-  build-please: # name of the job; can be anything you like
-    runs-on: ubuntu-latest # configures job to run on Ubuntu runner
-    steps: # group of steps that shall be run; can either be actions or shell commands
-      - uses: actions/checkout@v2 # setup the repository in the runner; chechout@v2 is an action that checks out your repository and downloads it to the runner
-      - name: Setup Node.js # setup Node.js in the runner
-        uses: actions/setup-node@v1 # This step uses the actions/setup-node@v2 action to install the specified version of the node software package on the runner, which gives you access to the npm command
+jobs:
+  build-please:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '12'
-      - uses: actions/cache@v2 # This action allows caching dependencies and build outputs to improve workflow execution time.
+          node-version: "14.x"  
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Production
+        run: npm run build
+    
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v1.0.4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} # An explicit key for restoring and saving the cache
-          restore-keys: ${{ runner.os }}-node- # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
-      - run: npm ci # install project dependencies
-      - run: npm run build --if-present # build the project
-      ## - run: npm run test:unit # run the tests
-      # deploy site to netlify using secrets created on repository
-      - uses: netlify/actions/cli@master # This Action enables arbitrary actions with the Netlify CLI
-        env: # environment variables used for netlify action
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_API_ID }}
-        with: # A map of the input parameters defined by the action. Each input parameter is a key/value pair. 
-          args: deploy --dir=dist --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
-          
+         path: dist/
+         
+  deploy:       
+    needs: build-please
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v1.2.0
+ 
+        
+        
+
+    
